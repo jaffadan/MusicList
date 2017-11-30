@@ -3,21 +3,13 @@ import {Button} from 'reactstrap'
 
 import Sidebar from '../shared/Sidebar.jsx';
 
-const showAlert = () => {
-  alert('You clicked the button. Well done, Well Done!');
-};
-
-export default function HomePage() {
-  return (
+export default function HomePage(props) {
+  
+    return (
     <div className="row">
       <div className="col-sm-12 col-md-8">
-                <p>
-          This is the home page.
-        </p>
-        <p>
-          Here for your enjoyment is a button:
-        </p>
-        <Button onClick={showAlert}>Click Me</Button>
+        <Button onClick={incrementFunction}>Increment</Button>  
+        <Button onClick={decrementFunction}>Decrement</Button>
       </div>
       <Sidebar />
     </div>
