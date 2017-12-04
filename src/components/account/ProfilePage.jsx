@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Sidebar from '../shared/Sidebar.jsx';
+import Sidebar from '../shared/Sidebar';
 
 export default function ProfilePage(props) {
   const { match } = props;

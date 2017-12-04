@@ -3,8 +3,8 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { incrementProgress, decrementProgress } from '../../actions/progress.js';
-import HomePage from './HomePage.jsx';
+import { incrementProgress, decrementProgress } from '../../actions/progress';
+import HomePage from './HomePage';
 
 export function HomePageContainer(props) {
   const{ decrementProgressAction, incrementProgressAction} = props;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 
-import Header from './shared/Header.jsx';
-import HomePage from './home/HomePageContainer.jsx';
-import LoginPage from './account/LoginPage.jsx';
-import ProfilePage from './account/ProfilePage.jsx';
+import Header from './shared/Header';
+import HomePage from './home/HomePageContainer';
+import LoginPage from './account/LoginPage';
+import ProfilePage from './account/ProfilePage';
 
 export default function Template(props) {
   return (

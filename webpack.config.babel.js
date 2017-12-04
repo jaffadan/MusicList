@@ -22,23 +22,23 @@ const jsOutputLocation = process.env.NODE_ENV === 'production' ? jsProdOutput : 
 
 
 module.exports = {
-	context: resolve(__dirname, 'src'),
-	entry: [
+  context: resolve(__dirname, 'src'),
+  entry: [
     './index.jsx',
-  	],
-	  output: jsOutputLocation,
-	resolve: {		
-    extensions: ['.js', '.jsx']
-	},
-	module: {
-    	rules: [
+  ],
+  output: jsOutputLocation,
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+  module: {
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components|public\/)/,
         loader: 'babel-loader',
       },
       {
-        test: /\.css?$/,
+        test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader',
@@ -61,7 +61,6 @@ module.exports = {
     ],
   },
   plugins: [
-
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin(cssOutputLocation),
@@ -76,8 +75,7 @@ if (process.env.NODE_ENV !== 'production') {
   module.exports.entry.unshift(
     'react-hot-loader/patch',
     'react-hot-loader/babel',
-    'webpack-hot-middleware/client'
+    'webpack-hot-middleware/client',
   );
-  
-  new webpack.HotModuleReplacementPlugin();
+  module.exports.plugins.push(new webpack.HotModuleReplacementPlugin());
 }

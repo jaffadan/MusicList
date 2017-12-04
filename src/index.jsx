@@ -11,15 +11,21 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './css/musiclist.scss';
 
 // Default export from a local file
-import Store from './store';
+import configureStore from './store';
+import DevTools from './components/shared/DevTools';
 
-import TemplateContainer from './components/TemplateContainer.jsx';
+import TemplateContainer from './components/TemplateContainer';
+
+const Store = configureStore();
 
 const renderApp = (Component) => {
   render(
     <AppContainer>
       <Provider store={Store}>
-        <Component />
+         <div>
+          <Component />
+          <DevTools />
+        </div>
       </Provider>
     </AppContainer>,
     document.querySelector('#react-app'),
@@ -29,7 +35,7 @@ const renderApp = (Component) => {
 renderApp(TemplateContainer);
 
 if (module && module.hot) {
-  module.hot.accept('./components/TemplateContainer.jsx', () => {
+  module.hot.accept('./components/TemplateContainer', () => {
     renderApp(TemplateContainer);
   });
 }
